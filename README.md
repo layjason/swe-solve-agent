@@ -13,6 +13,8 @@ issue + repo @ /testbed
 
 Inspired by [PatchPilot](https://arxiv.org/abs/2502.02747) / Agentless-style rule-based workflows (fixed phase order instead of an open-ended agent loop).
 
+![Overview of SWE-SolveAgent](assets/pipeline.jpg)
+
 ---
 
 ## Highlights
@@ -27,6 +29,19 @@ Inspired by [PatchPilot](https://arxiv.org/abs/2502.02747) / Agentless-style rul
 - Runs against official **SWE-bench Docker** environments
 - Model-agnostic API client (default: DeepSeek via OpenAI-compatible endpoint)
 - Token-budget guard for cost control during multi-phase repair
+
+### Efficiency (sample run)
+
+On a **5-task** SWE-bench Lite subset (`deepseek-v3.2`, final pipeline):
+
+| Metric | Value |
+|--------|------:|
+| Prompt tokens | 363,485 |
+| Completion tokens | 61,087 |
+| **Total tokens** | **424,572** |
+| **≈ per task** | **~84.9k** |
+
+Validation/ranking is deterministic (Docker tests only), so ranking cost does not consume LLM tokens. Treat these figures as a cost profile for that run size, not a full-benchmark score.
 
 ---
 
@@ -55,10 +70,12 @@ def solve_task(context: TaskContext, env: DockerEnv, model: ModelClient) -> str:
 .
 ├── main.py              # CLI: generate predictions.jsonl
 ├── evaluate.py          # CLI: official SWE-bench harness evaluation
-├── src/                 # ★ SWE-SolveAgent (your solve_task pipeline)
+├── src/                 # ★ SWE-SolveAgent (solve_task pipeline)
 ├── utils/               # Docker / model / patch helpers
 ├── scripts/             # dataset download & image pull
 ├── tests/               # unit tests for agent phases
+├── assets/
+│   └── pipeline.jpg     # architecture diagram
 ├── requirements.txt
 ├── swebench_tasks.txt   # instance_id list
 └── .env.example
