@@ -1,0 +1,68 @@
+# ── Secrets & local environment ──────────────────────────────────────────────
+.env
+.venv/
+venv/
+env/
+
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ── OS / IDE / tooling ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.commandcode/
+
+# ── Course docs, specs, notes (not part of the public agent) ──────────────────
+docs/
+specs/
+*.md
+!README.md
+refinement-analysis*.md
+
+# ── Experiment / run artifacts ───────────────────────────────────────────────
+data/
+logs/
+runs/
+predictions.jsonl
+*.jsonl
+
+# Model run dumps (deepseek evaluation outputs)
+deepseek*.json
+*-v3*.json
+*-v3-*.json
+
+# ── Local tool / editor config ───────────────────────────────────────────────
+opencode.json
+opencode*.json
+
+# ── Large binaries & vendored deps (not needed on GitHub) ────────────────────
+SWE-bench/
+*.pptx
+*.pdf
+*.arrow
+
+# ── Optional local assets (keep screenshots untracked until you add them) ───
+# Uncomment the next line if you want to ignore all images by default:
+# assets/*
+# !assets/.gitkeep
