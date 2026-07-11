@@ -38,6 +38,7 @@ docs/
 specs/
 *.md
 !README.md
+!README.zh-CN.md
 refinement-analysis*.md
 
 # ── Experiment / run artifacts ───────────────────────────────────────────────

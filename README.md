@@ -1,5 +1,7 @@
 # SWE-SolveAgent
 
+**English** | [中文](README.zh-CN.md)
+
 **A multi-phase LLM agent that repairs real GitHub issues on [SWE-bench](https://www.swebench.com/).**
 
 Given a bug report and a repository inside a Docker sandbox, the agent returns a **unified diff patch**. The core entrypoint is `solve_task` in [`src/agent.py`](src/agent.py):
